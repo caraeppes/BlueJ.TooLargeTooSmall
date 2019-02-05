@@ -1,33 +1,50 @@
 
 /**
- * Write a description of class Main here.
+ * Generates a random number between 1 and 10.
+ * Asks the user to guess the number.
+ * Provides user with feedback on guesses.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Cara Eppes
+ * @version 2/5/19
  */
+
+import java.util.Scanner;
+import java.util.Random;
+
 public class Main
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class Main
-     */
-    public Main()
-    {
-        // initialise instance variables
-        x = 0;
-    }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    
+    public static void main(String[] args){
+        
+        Scanner scanner = new Scanner(System.in);
+        
+        Random r = new Random();
+        int num = r.nextInt(10) + 1;
+        boolean guessed = false;
+        int guesses = 0;
+        
+        System.out.println("Guess a number between 1 and 10.");
+        while (guessed == false){
+            
+            int guess = scanner.nextInt();
+            
+            if (guess > num){
+                System.out.println("Too high! Guess again.");
+                guesses++;
+            }
+            
+            else if (guess < num){
+                System.out.println("Too low! Guess again.");
+                guesses++;
+            }
+            
+            else {
+                System.out.println("You guessed it!");
+                guesses++;
+                System.out.println("It took you " + guesses + " guesses!");
+                guessed = true;
+            }
+        }
+                
     }
 }
